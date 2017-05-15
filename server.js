@@ -92,7 +92,7 @@ app.get('/pagecount', function (req, res) {
 });
 
 app.get('/campaigns', function (req, res) {
-  res.render('campaigns.json');
+  res.render('campaigns.json', {});
 });
 
 // error handling
