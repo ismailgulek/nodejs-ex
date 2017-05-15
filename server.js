@@ -98,7 +98,7 @@ app.get('/campaigns', function (req, res) {
     initDb(function(err){});
   }
   if (db) {
-    db.collection('campaigns').find().toArray(function(err, results){
+    db.collection('zubizuCampaignsDb').find().toArray(function(err, results){
         res.send(results);
     });
     // db.collection('campaigns').find(function(err, result){
