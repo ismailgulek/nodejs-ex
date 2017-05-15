@@ -92,7 +92,21 @@ app.get('/pagecount', function (req, res) {
 });
 
 app.get('/campaigns', function (req, res) {
-  res.render('campaigns.json', {});
+  // try to initialize the db on every request if it's not already
+  // initialized.
+  if (!db) {
+    initDb(function(err){});
+  }
+  if (db) {
+    db.collection('campaigns').find().toArray(function(err, results){
+        res.send(results);
+    });
+    // db.collection('campaigns').find(function(err, result){
+    //   res.send(result);
+    // });
+  } else {
+    res.send('[]');
+  }
 });
 
 // error handling
