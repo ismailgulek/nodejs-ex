@@ -99,7 +99,7 @@ app.get('/campaigns', function (req, res) {
   }
   if (db) {
     db.collection('zubizuCampaignsDb').find().toArray(function(err, results){
-        res.send(results);
+        res.jsonp(results);
     });
     // db.collection('campaigns').find(function(err, result){
     //   res.send(result);
