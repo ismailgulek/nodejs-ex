@@ -28,4 +28,14 @@ describe('Basic routes tests', function() {
         })
 
     })
+
+    it('GET to /campaigns should return 200', function(done){
+        chai.request(reqServer)
+        .get('/campaigns')
+        .end(function(err, res) {
+            res.should.have.status(200);
+            done();
+        })
+
+    })
 })
