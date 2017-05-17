@@ -101,11 +101,8 @@ app.get('/campaigns', function (req, res) {
     db.collection('zubizuCampaignsDb').find().toArray(function(err, results){
         res.jsonp(results);
     });
-    // db.collection('campaigns').find(function(err, result){
-    //   res.send(result);
-    // });
   } else {
-    res.send('[]');
+    res.jsonp({'result': 'false', 'error':'Db connection error'});
   }
 });
 
